@@ -1,0 +1,11 @@
+---
+- name: "Managing dotfiles"
+  hosts: all
+  become: true
+
+  roles:
+    - luizgavalda.aur
+
+  tasks:
+    - import_tasks: packages.yml
+

@@ -1,0 +1,20 @@
+---
+- name: "Install pacman packages"
+  pacman:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ packages.present.pacman }}"
+
+- name: "Install yay packages"
+  aur:
+    use: yay
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ packages.present.yay }}"
+
+- name: "Remove pacman packages"
+  pacman:
+    name: "{{ item }}"
+    state: absent
+  with_items: "{{ packages.absent.pacman }}"    
+
