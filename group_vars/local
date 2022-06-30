@@ -1,13 +1,67 @@
 ---
+install_apps: false
+
 packages:
   present:
     pacman:
-      - neofetch
-    
+      system:
+        - dmenu
+        - neovim
+        - kitty
+        - bat
+        - lsd
+        - btop
+        - fd
+        - procs
+        - ripgrep
+        - firefox
+
+      apps:
+        - neofetch
+        - arduino
+        - arduino-avr-code
+        - audacity
+        - discord
+        - gimp
+        - pinta
+        - simplescreenrecorder
+        - xournalpp
+        - zathura
+        - zathura-pdf
+        - cheese
+        - bitwarden
+        - pdfjam
+        - gparted
+        - transmission-gtk
+        - telegram
+        - doxygen
+        - calibre
+        - nextcloud-client
+        - tokei
+
+        # VMs
+        - virt-manager
+        - qemu
+        - vde2
+        - ebtables
+        - dnsmasq
+        - bridge-utils
+        - openbsd-netcat
     yay:
-      - tokei
-  
+      system:
+        - sublime-text-4
+        - neovim-plug
+
+      apps:
+        - android-studio
+        - joplin-desktop
+        - todoist-electron
+        - whatsapp-nativefier-dark
+        - google-calendar-nativefier
+        - marktext
+        - mailspring
+        - tor-browser
+
   absent:
-    pacman:
-      - kitty
+    alacritty
 
