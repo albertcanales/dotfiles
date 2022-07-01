@@ -9,3 +9,8 @@
   tasks:
     - import_tasks: packages.yml
 
+    - include_tasks: dotfiles.yml
+      loop: "{{ modules }}"
+      loop_control:
+        loop_var: module
+

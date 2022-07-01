@@ -1,35 +1,29 @@
 ---
 - name: "Install pacman system packages"
   pacman:
-    name: "{{ item }}"
+    name: "{{ packages.present.pacman.system }}"
     state: present
-  with_items: "{{ packages.present.pacman.system }}"
 
 - name: "Install yay system packages"
   aur:
     use: yay
-    name: "{{ item }}"
+    name: "{{ packages.present.yay.system }}"
     state: present
-  with_items: "{{ packages.present.yay.system }}"
 
 - name: "Install pacman app packages"
   pacman:
-    name: "{{ item }}"
+    name: "{{ packages.present.pacman.apps }}"
     state: present
-  with_items: "{{ packages.present.pacman.apps }}"
   when: install_apps
 
 - name: "Install yay app packages"
   aur:
     use: yay
-    name: "{{ item }}"
+    name: "{{ packages.present.yay.apps }}"
     state: present
-  with_items: "{{ packages.present.yay.apps }}"
   when: install_apps
 
 - name: "Remove packages"
   pacman:
-    name: "{{ item }}"
+    name: "{{ packages.absent }}"
     state: absent
-  with_items: "{{ packages.absent }}"
-

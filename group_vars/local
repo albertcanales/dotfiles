@@ -7,7 +7,9 @@ packages:
       system:
         - bash
         - git
+        - stow
         - dmenu
+        - most
         - neovim
         - kitty
         - bat
@@ -17,6 +19,7 @@ packages:
         - procs
         - ripgrep
         - firefox
+        - ttf-nerd-fonts-symbols
 
       apps:
         - neofetch
@@ -65,5 +68,17 @@ packages:
         - tor-browser
 
   absent:
-    alacritty
+    - alacritty
 
+modules:
+  - src:
+    - kitty
+    - awesome
+    - nvim
+    target: /home/albert/.config
+    own_dir: true
+  - src:
+    - bash
+    - git
+    target: /home/albert
+    own_dir: false

@@ -1,0 +1,31 @@
+---
+- name: "Create dir for whole"
+  file:
+    path: "{{ module.target }}"
+    state: directory
+  when: not module.own_dir
+
+- name: "Stowing in whole"
+  stow:
+    state: supress
+    package: "{{ item }}"
+    dir: "/home/albert/dotfiles"
+    target: "{{ module.target }}"
+  with_items: "{{ module.src }}"
+  when: not module.own_dir
+
+- name: "Create dir for separate"
+  file:
+    path: "{{ module.target }}/{{ item }}"
+    state: directory
+  with_items: "{{ module.src }}"
+  when: module.own_dir
+
+- name: "Stowing separately"
+  stow:
+    state: supress
+    package: "{{ item }}"
+    dir: "/home/albert/dotfiles"
+    target: "{{ module.target }}/{{ item }}"
+  with_items: "{{ module.src }}"
+  when: module.own_dir
