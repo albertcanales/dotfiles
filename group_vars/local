@@ -5,6 +5,8 @@ packages:
   present:
     pacman:
       system:
+        - bash
+        - git
         - dmenu
         - neovim
         - kitty

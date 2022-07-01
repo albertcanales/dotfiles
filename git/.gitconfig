@@ -1,0 +1,7 @@
+[user]
+	email = albertcanalesros@gmail.com
+	name = Albert Canales Ros
+[credential]
+	helper = store
+[alias]
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
