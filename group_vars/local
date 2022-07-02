@@ -56,6 +56,7 @@ packages:
       system:
         - sublime-text-4
         - neovim-plug
+        - ly
 
       apps:
         - android-studio
@@ -80,5 +81,10 @@ modules:
   - src:
     - bash
     - git
+    - xinit
     target: /home/albert
     own_dir: false
+  - src:
+    - sbin
+    target: /usr/
+    own_dir: true

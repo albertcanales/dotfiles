@@ -6,6 +6,10 @@
   roles:
     - luizgavalda.aur
 
+  handlers:
+    - name: update-grub
+      command: update-grub
+
   tasks:
     - import_tasks: packages.yml
 
@@ -13,4 +17,6 @@
       loop: "{{ modules }}"
       loop_control:
         loop_var: module
+
+    - import_tasks: extra.yml
 

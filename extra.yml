@@ -1,0 +1,19 @@
+# Timezone
+- name: "Setting timezone"
+  timezone:
+    hwclock: "local"
+    name: "Europe/Madrid"
+
+# Grub
+- name: "Grub screen resolution"
+  replace:
+    path: "/etc/default/grub"
+    regexp: '^GRUB_GFXMODE\=.*$'
+    replace: 'GRUB_GFXMODE=1920x1080,auto'
+  notify: "update-grub"
+
+# Ly
+- name: "Configure ly service"
+  service:
+    name: ly
+    enabled: true

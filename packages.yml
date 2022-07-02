@@ -5,8 +5,7 @@
     state: present
 
 - name: "Install yay system packages"
-  aur:
-    use: yay
+  yay:
     name: "{{ packages.present.yay.system }}"
     state: present
 
@@ -17,8 +16,7 @@
   when: install_apps
 
 - name: "Install yay app packages"
-  aur:
-    use: yay
+  yay:
     name: "{{ packages.present.yay.apps }}"
     state: present
   when: install_apps
