@@ -10,6 +10,13 @@
     - name: update-grub
       command: update-grub
 
+    - name: copy-gtk-theme-temp
+      copy:
+        src: "/tmp/gtk-master/"
+        dest: "/home/albert/.themes/Dracula/"
+        remote_src: true
+      become: false
+
   tasks:
     - import_tasks: packages.yml
 

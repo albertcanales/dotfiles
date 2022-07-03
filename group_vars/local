@@ -20,6 +20,9 @@ packages:
         - ripgrep
         - firefox
         - ttf-nerd-fonts-symbols
+        - rofi
+        - unzip
+        - python-pip
 
       apps:
         - neofetch
@@ -76,6 +79,7 @@ modules:
     - kitty
     - awesome
     - nvim
+    - rofi
     target: /home/albert/.config
     own_dir: true
   - src:

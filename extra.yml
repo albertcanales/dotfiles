@@ -17,3 +17,24 @@
   service:
     name: ly
     enabled: true
+
+- name: "Download Dracula theme for GTK"
+  unarchive:
+    src: "https://github.com/dracula/gtk/archive/master.zip"
+    dest: "/tmp/"
+    remote_src: true
+    # extra_opts: [--strip-components=1]
+    creates: "/home/albert/.themes/Dracula/README.md"
+  become: false
+  notify: copy-gtk-theme-temp
+
+- name: "Apply GTK Dracula Theme 1"
+  dconf:
+    key: "/org/gnome/desktop/interface"
+    value: "['gtk-theme', 'Dracula']"
+
+- name: "Apply GTK Dracula Theme 2"
+  dconf:
+    key: "/org/gnome/desktop/wm/preferences"
+    value: "['theme', 'Dracula']"
+
