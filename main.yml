@@ -26,4 +26,5 @@
         loop_var: module
 
     - import_tasks: extra.yml
+      become: false
 
