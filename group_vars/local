@@ -23,6 +23,7 @@ packages:
         - rofi
         - unzip
         - python-pip
+        - imagemagick
 
       apps:
         - neofetch
@@ -80,6 +81,7 @@ modules:
     - awesome
     - nvim
     - rofi
+    - dwm
     target: /home/albert/.config
     own_dir: true
   - src:

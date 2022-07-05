@@ -42,4 +42,4 @@ fi
 xrandr -s 1920x1080
 # END changes
 
-exec awesome
+exec dwm

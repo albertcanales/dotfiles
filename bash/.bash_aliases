@@ -35,6 +35,7 @@ alias scp="scp -F $HOME/.ssh/config "
 alias f5upc="f5fpc -s -x -t https://upclink.upc.edu"
 alias sshconf="kitty +kitten ssh "
 alias idea="export _JAVA_AWT_WM_NONREPARENTING=1;idea"
+alias dwmmake="rm -f ~/.config/dwm/config.h && sudo make -C ~/.config/dwm install"
 
 # Folders
 next="$HOME/nextcloud"

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=dwm
+Comment=Dynamic Window Manager
+TryExec=dwm
+Exec=xrandr -s 1920x1080; dwm
+Type=Application

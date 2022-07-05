@@ -39,3 +39,23 @@
     key: "/org/gnome/desktop/wm/preferences"
     value: "['theme', 'Dracula']"
 
+# Systemd
+
+- name: "Add rc-local service"
+  copy:
+    src: "systemd/rc-local.service"
+    dest: "/etc/systemd/system/rc-local.service"
+  become: true
+
+- name: "Configure rc-local service"
+  service:
+    name: "rc-local.service"
+    enabled: true
+  become: true
+
+- name: "Copy rc.local file"
+  copy:
+    src: "systemd/rc.local"
+    dest: "/etc/rc.local"
+    mode: "o+x"
+  become: true
