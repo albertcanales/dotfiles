@@ -40,6 +40,8 @@ fi
 
 # BEGIN changes
 xrandr -s 1920x1080
+~/.fehbg &
+sxhkd &
 # END changes
 
 exec dwm

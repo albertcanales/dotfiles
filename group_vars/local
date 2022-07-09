@@ -5,6 +5,7 @@ packages:
   present:
     pacman:
       system:
+        - sxhkd
         - bash
         - git
         - stow
@@ -81,12 +82,14 @@ modules:
     - kitty
     - nvim
     - rofi
+    - sxhkd
     target: /home/albert/.config
     own_dir: true
   - src:
     - bash
     - git
     - xinit
+    - feh
     target: /home/albert
     own_dir: false
   - src:

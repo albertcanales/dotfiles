@@ -1,0 +1,80 @@
+#!/bin/bash
+
+### Apps
+# Terminal emulator
+super + Return
+	kitty
+
+# Other applications
+super + {_, shift + }w
+    firefox{_, --private-window}
+
+super + e
+    [[ $(pgrep sublime) ]] && subl -n || subl
+
+super + d
+    pcmanfm
+
+
+### Menus
+
+# App and run Menu
+super + {_, shift + }@space
+    rofi -show {drun, run}
+
+# Power Menu
+super + Delete
+	rofi -show power-menu -modi power-menu:/home/albert/.config/rofi/rofi-power-menu
+
+
+### Utilities
+
+# Reload wallpaper
+super + F5
+	~/.fehbg &
+	
+# Reload sxhkd
+super + F6
+    pkill -USR1 -x sxhkd
+
+
+### Media keys
+
+XF86AudioRaiseVolume
+    amixer -q sset Master 5%+
+
+XF86AudioLowerVolume
+    amixer -q sset Master 5%-
+
+XF86AudioMute
+    amixer -q sset Master toggle
+
+XF86MonBrightnessDown
+    brightnessctl -e -d intel_backlight set '5%-'
+
+XF86MonBrightnessUp
+    brightnessctl -e -d intel_backlight set '+5%'
+
+XF86Sleep
+    systemctl suspend
+
+XF86AudioPlay
+    playerctl play-pause
+        
+XF86AudioNext
+    playerctl next
+
+XF86AudioPrev
+    playerctl previous
+
+XF86AudioStop
+    playerctl stop
+
+XF86WebCam
+    sed -i 's/card [0-9]/card {0,1}/' $HOME/.asoundrc
+
+XF86TouchpadToggle
+    $HOME/bin/toggle-touchpad
+
+Print
+    flameshot gui
