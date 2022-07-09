@@ -24,6 +24,7 @@ packages:
         - unzip
         - python-pip
         - imagemagick
+        - man-pages
 
       apps:
         - neofetch
@@ -78,10 +79,8 @@ packages:
 modules:
   - src:
     - kitty
-    - awesome
     - nvim
     - rofi
-    - dwm
     target: /home/albert/.config
     own_dir: true
   - src:

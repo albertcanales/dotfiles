@@ -1,3 +1,10 @@
+# Dwm
+- name: "Cloning DWM repo"
+  git:
+    repo: "https://github.com/albertcanales/dwm.git"
+    dest: "/home/albert/.dwm"
+    update: false
+
 # Timezone
 - name: "Setting timezone"
   timezone:

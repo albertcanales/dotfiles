@@ -14,7 +14,7 @@ Most values of this table are left empty as its value will be decided later on.
 
 ```
 Theme         = Dracula
-WM            = AwesomeWM
+WM            = dwm
 Bar           = ?
 Terminal      = kitty
 Font          = ?
