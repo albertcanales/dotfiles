@@ -10,6 +10,7 @@
   timezone:
     hwclock: "local"
     name: "Europe/Madrid"
+  become: true
 
 # Grub
 - name: "Grub screen resolution"

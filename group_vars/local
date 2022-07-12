@@ -92,7 +92,3 @@ modules:
     - feh
     target: /home/albert
     own_dir: false
-  - src:
-    - sbin
-    target: /usr/
-    own_dir: true

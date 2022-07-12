@@ -3,9 +3,6 @@
   hosts: all
   become: true
 
-  roles:
-    - luizgavalda.aur
-
   handlers:
     - name: update-grub
       command: update-grub
