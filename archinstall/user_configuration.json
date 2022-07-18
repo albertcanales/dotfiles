@@ -1,0 +1,34 @@
+{
+    "audio": "pipewire",
+    "config_version": "2.5.0",
+    "debug": false,
+    "gfx_driver": "VMware / VirtualBox (open-source)",
+    "harddrives": [
+        "/dev/vda"
+    ],
+    "hostname": "albert-vm",
+    "keyboard-layout": "es",
+    "mount_point": null,
+    "nic": {
+        "dhcp": true,
+        "dns": null,
+        "gateway": null,
+        "iface": null,
+        "ip": null,
+        "type": "iso"
+    },
+    "packages": [
+        "git",
+        "ansible",
+        "wget",
+        "go"
+    ],
+    "plugin": null,
+    "profile": {
+        "path": "/usr/lib/python3.10/site-packages/archinstall/profiles/xorg.py"
+    },
+    "script": "guided",
+    "silent": false,
+    "timezone": "Europe/Madrid",
+    "version": "2.5.0"
+}
