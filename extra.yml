@@ -1,9 +1,10 @@
 # Dwm
-- name: "Cloning DWM repo"
-  git:
-    repo: "https://github.com/albertcanales/dwm.git"
+- name: "Linking DWM repo"
+  file:
+    src: "/home/albert/dotfiles/dwm"
     dest: "/home/albert/.dwm"
-    update: false
+    state: link
+  notify: compile-dwm
 
 # Timezone
 - name: "Setting timezone"
@@ -33,7 +34,6 @@
     src: "https://github.com/dracula/gtk/archive/master.zip"
     dest: "/tmp/"
     remote_src: true
-    # extra_opts: [--strip-components=1]
     creates: "/home/albert/.themes/Dracula/README.md"
   notify: copy-gtk-theme-temp
 
@@ -67,3 +67,18 @@
     dest: "/etc/rc.local"
     mode: "o+x"
   become: true
+
+# Wallpapers
+
+- name: "Create wallpapers directory"
+  file:
+    path: "/home/albert/wallpapers"
+    state: directory
+
+
+- name: "Download wallpapers"
+  unarchive:
+    src: "https://www.albertcanales.com/wallpapers.zip"
+    dest: "/home/albert/wallpapers/"
+    remote_src: true
+    creates: "/home/albert/wallpapers/README.md"

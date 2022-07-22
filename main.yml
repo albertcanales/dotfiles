@@ -5,7 +5,7 @@
 
   handlers:
     - name: update-grub
-      command: update-grub
+      command: grub-mkconfig -o /boot/grub/grub.cfg
 
     - name: copy-gtk-theme-temp
       copy:
@@ -13,6 +13,12 @@
         dest: "/home/albert/.themes/Dracula/"
         remote_src: true
       become: false
+
+    - name: compile-dwm
+      make:
+        chdir: "/home/albert/.dwm"
+        target: install
+      become: true
 
   tasks:
     - import_tasks: packages.yml

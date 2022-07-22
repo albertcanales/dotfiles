@@ -26,6 +26,7 @@ packages:
         - python-pip
         - imagemagick
         - man-pages
+        - sxiv
 
       apps:
         - neofetch
@@ -73,6 +74,9 @@ packages:
         - marktext
         - mailspring
         - tor-browser
+    pip:
+      system:
+        - psutil
 
   absent:
     - alacritty
