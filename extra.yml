@@ -82,3 +82,25 @@
     dest: "/home/albert/wallpapers/"
     remote_src: true
     creates: "/home/albert/wallpapers/README.md"
+
+
+# Sudoers
+
+- name: Allow albert to run reboot and poweroff without password
+  community.general.sudoers:
+    name: albert-power-commands
+    user: albert
+    commands:
+      - /bin/systemctl poweroff
+      - /bin/systemctl reboot
+    nopassword: true
+  become: true
+
+
+# Nvim
+
+- name: Install nvim plugins
+  command: "/home/albert/dotfiles/nvim/plugins.sh"
+  register: nvim_plugins
+  changed_when: "nvim_plugins.rc == 1"
+  failed_when: "nvim_plugins.rc not in [0, 1]"

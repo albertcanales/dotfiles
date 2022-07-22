@@ -24,7 +24,7 @@ super + {_, shift + }@space
 
 # Power Menu
 super + Delete
-	rofi -show power-menu -modi power-menu:/home/albert/.config/rofi/rofi-power-menu
+	rofi -show power-menu -modi "power-menu:/home/albert/.config/rofi/rofi-power-menu --choices=lockscreen/suspend/logout/reboot/shutdown"
 
 
 ### Utilities
