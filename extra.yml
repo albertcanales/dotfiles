@@ -22,6 +22,30 @@
   notify: "update-grub"
   become: true
 
+- name: "Grub os-prober"
+  replace:
+    path: "/etc/default/grub"
+    regexp: '^[#]?GRUB_DISABLE_OS_PROBER\=.*$'
+    replace: 'GRUB_DISABLE_OS_PROBER=false'
+  notify: "update-grub"
+  become: true
+
+- name: "Grub Default"
+  replace:
+    path: "/etc/default/grub"
+    regexp: '^GRUB_DEFAULT\=.*$'
+    replace: 'GRUB_DEFAULT=saved'
+  notify: "update-grub"
+  become: true
+
+- name: "Grub Save Default"
+  replace:
+    path: "/etc/default/grub"
+    regexp: '^[#]?GRUB_SAVEDEFAULT\=.*$'
+    replace: 'GRUB_SAVEDEFAULT=true'
+  notify: "update-grub"
+  become: true
+
 # Ly
 - name: "Configure ly service"
   service:

@@ -5,6 +5,7 @@ packages:
   present:
     pacman:
       system:
+        - os-prober
         - sxhkd
         - bash
         - git
@@ -25,8 +26,12 @@ packages:
         - unzip
         - python-pip
         - imagemagick
+        - man-db
         - man-pages
         - sxiv
+        - pcmanfm
+        - nano
+        - arandr
 
       apps:
         - neofetch
