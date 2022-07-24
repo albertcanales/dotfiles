@@ -71,27 +71,6 @@
     key: "/org/gnome/desktop/wm/preferences"
     value: "['theme', 'Dracula']"
 
-# Systemd
-
-- name: "Add rc-local service"
-  copy:
-    src: "systemd/rc-local.service"
-    dest: "/etc/systemd/system/rc-local.service"
-  become: true
-
-- name: "Configure rc-local service"
-  service:
-    name: "rc-local.service"
-    enabled: true
-  become: true
-
-- name: "Copy rc.local file"
-  copy:
-    src: "systemd/rc.local"
-    dest: "/etc/rc.local"
-    mode: "o+x"
-  become: true
-
 # Wallpapers
 
 - name: "Create wallpapers directory"
@@ -117,6 +96,7 @@
     commands:
       - /bin/systemctl poweroff
       - /bin/systemctl reboot
+      - /bin/loginctl terminate-session
     nopassword: true
   become: true
 
@@ -128,3 +108,13 @@
   register: nvim_plugins
   changed_when: "nvim_plugins.rc == 1"
   failed_when: "nvim_plugins.rc not in [0, 1]"
+
+
+# Faillock
+
+- name: Disable denial of sudo access after any failed attempts
+  replace:
+    path: "/etc/security/faillock.conf"
+    regexp: '^(# )?deny \=.*$'
+    replace: 'deny = 0'
+  become: true

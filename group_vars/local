@@ -32,6 +32,7 @@ packages:
         - pcmanfm
         - nano
         - arandr
+        - feh
 
       apps:
         - neofetch
@@ -72,7 +73,7 @@ packages:
 
       apps:
         - android-studio
-        - joplin-desktop
+        - joplin-appimage
         - todoist-electron
         - whatsapp-nativefier-dark
         - google-calendar-nativefier
@@ -101,3 +102,7 @@ modules:
     - feh
     target: /home/albert
     own_dir: false
+  - src:
+    - bin
+    target: /home/albert
+    own_dir: true
