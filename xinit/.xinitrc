@@ -9,6 +9,7 @@ fi
 
 ~/.fehbg &
 sxhkd &
+dwmblocks &
 monitors
 
 exec dwm
