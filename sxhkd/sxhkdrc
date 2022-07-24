@@ -41,13 +41,13 @@ super + F6
 ### Media keys
 
 XF86AudioRaiseVolume
-    amixer -q sset Master 5%+
+    pamixer --allow-boost -i 1
 
 XF86AudioLowerVolume
-    amixer -q sset Master 5%-
+    pamixer --allow-boost -d 1
 
 XF86AudioMute
-    amixer -q sset Master toggle
+    pamixer -t
 
 XF86MonBrightnessDown
     brightnessctl -e -d intel_backlight set '5%-'

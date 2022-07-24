@@ -1,5 +1,5 @@
 ---
-install_apps: false
+install_apps: true
 
 packages:
   present:
@@ -33,38 +33,22 @@ packages:
         - nano
         - arandr
         - feh
+        - pamixer
 
       apps:
+        - bluez-utils
         - neofetch
-        - arduino
-        - arduino-avr-code
         - audacity
-        - discord
         - gimp
-        - pinta
-        - simplescreenrecorder
         - xournalpp
         - zathura
-        - zathura-pdf
-        - cheese
+        - zathura-pdf-mupdf
         - bitwarden
-        - pdfjam
         - gparted
         - transmission-gtk
-        - telegram
-        - doxygen
         - calibre
         - nextcloud-client
-        - tokei
 
-        # VMs
-        - virt-manager
-        - qemu
-        - vde2
-        - ebtables
-        - dnsmasq
-        - bridge-utils
-        - openbsd-netcat
     yay:
       system:
         - sublime-text-4
@@ -72,14 +56,11 @@ packages:
         - ly
 
       apps:
-        - android-studio
+        - rofi-bluetooth-git
         - joplin-appimage
-        - todoist-electron
-        - whatsapp-nativefier-dark
-        - google-calendar-nativefier
+        - whatsapp-nativefier
         - marktext
-        - mailspring
-        - tor-browser
+
     pip:
       system:
         - psutil

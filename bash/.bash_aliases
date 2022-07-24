@@ -17,8 +17,6 @@ alias lls="/usr/bin/ls"
 alias ls="lsd -hA"
 alias tree="lsd --tree"
 alias cleanup-packages='(set -x; sudo pacman -R $(pacman -Qdtq))'
-alias ifconfig="nmcli"
-alias bt-reset="systemctl restart bluetooth.service"
 
 # Programs
 alias gs="git status"
@@ -27,9 +25,6 @@ alias gl="git log"
 alias addall="git add --all"
 alias vim="nvim"
 alias g++c="g++ --std=c++17 -Wall -O2 -fsanitize=address"
-alias autostow="cd ~/dotfiles && ~/dotfiles/autostow"
-alias serve="browser-sync start --server --files ."
-alias dades="source dades"
 alias scp="scp -F $HOME/.ssh/config "
 alias f5upc="f5fpc -s -x -t https://upclink.upc.edu"
 alias sshconf="kitty +kitten ssh "
@@ -43,9 +38,6 @@ alias uni="cd $uni"
 alias next="cd $next"
 alias dot="cd ~/dotfiles"
 alias aliasedit="vim ~/.bash_aliases; source ~/.bashrc"
-alias stowedit="vim ~/dotfiles/autostow && autostow"
-alias postinstalledit="vim ~/dotfiles/postinstall.sh"
-alias cronedit="vim ~/dotfiles/cron/crontab && crontab ~/dotfiles/cron/crontab"
 
 
 function mmkdir() {
