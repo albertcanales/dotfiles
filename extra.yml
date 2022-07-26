@@ -118,3 +118,26 @@
     regexp: '^(# )?deny \=.*$'
     replace: 'deny = 0'
   become: true
+
+
+# Bluetooth
+
+- name: Enable bluetooth service
+  service:
+    name: bluetooth
+    enabled: true
+  become: true
+
+# Network
+
+- name: Enable network manager service
+  service:
+    name: NetworkManager
+    enabled: true
+  become: true
+
+- name: Disable networkd service
+  service:
+    name: systemd-networkd
+    enabled: false
+  become: true

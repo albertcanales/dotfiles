@@ -37,6 +37,8 @@ packages:
         - acpi
         - bluez-utils
         - networkmanager
+        - xdotool
+        - openssh
 
       apps:
         - neofetch
@@ -62,13 +64,13 @@ packages:
         - joplin-appimage
         - whatsapp-nativefier
         - marktext
+        - appimagelauncher
+        - todoist-appimage
+        - balena-etcher
 
     pip:
       system:
         - psutil
-
-  absent:
-    - alacritty
 
 modules:
   - src:

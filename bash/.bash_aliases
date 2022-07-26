@@ -38,6 +38,7 @@ alias uni="cd $uni"
 alias next="cd $next"
 alias dot="cd ~/dotfiles"
 alias aliasedit="vim ~/.bash_aliases; source ~/.bashrc"
+alias varsedit="vim ~/dotfiles/group_vars/local"
 
 
 function mmkdir() {

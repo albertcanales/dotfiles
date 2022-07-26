@@ -1,1 +1,4 @@
-feh --bg-fill --no-fehbg --randomize ~/wallpapers/* 
+#!/bin/bash
+
+# All monitors share the same wallpaper
+feh --bg-fill --no-fehbg $(ls ~/wallpapers/*.jpg | sort -R | head -1)
