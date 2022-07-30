@@ -3,14 +3,14 @@
 ### Apps
 # Terminal emulator
 super + Return
-	kitty
+    kitty
 
 # Other applications
 super + {_, shift + }w
     firefox{_, --private-window}
 
 super + e
-    [[ $(pgrep sublime) ]] && subl -n || subl
+    subl --launch-or-new-window
 
 super + d
     pcmanfm

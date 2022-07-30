@@ -141,3 +141,26 @@
     name: systemd-networkd
     enabled: false
   become: true
+
+
+# PCManFM
+
+- name: Adding polkit rule to allow mounting
+  copy:
+    src: /home/albert/dotfiles/polkit/
+    dest: /etc/polkit-1/rules.d/
+  become: true
+
+- name: Adding user albert to storage group
+  user: name=albert
+        groups=storage
+        append=yes
+  become: true
+
+# Xorg
+
+- name: Adding xorg configurations
+  copy:
+    src: /home/albert/dotfiles/xorg/
+    dest: /etc/X11/xorg.conf.d/
+  become: true

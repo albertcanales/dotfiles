@@ -30,6 +30,8 @@ packages:
         - man-pages
         - sxiv
         - pcmanfm
+        - gvfs
+        - ntfs-3g
         - nano
         - arandr
         - feh
@@ -38,6 +40,7 @@ packages:
         - bluez-utils
         - networkmanager
         - xdotool
+        - xorg-xkill
         - openssh
 
       apps:
@@ -52,6 +55,7 @@ packages:
         - transmission-gtk
         - calibre
         - nextcloud-client
+        - sshpass
 
     yay:
       system:
