@@ -53,6 +53,15 @@
     enabled: true
   become: true
 
+- name: Blank password field after failure
+  replace:
+    path: /etc/ly/config.ini
+    regexp: '#blank_password = true'
+    replace: 'blank_password = true'
+  become: true
+
+# GTK
+
 - name: "Download Dracula theme for GTK"
   unarchive:
     src: "https://github.com/dracula/gtk/archive/master.zip"
@@ -163,4 +172,13 @@
   copy:
     src: /home/albert/dotfiles/xorg/
     dest: /etc/X11/xorg.conf.d/
+  become: true
+
+# Hosts file
+
+- name: Add Home Server to hosts file
+  lineinfile:
+    path: /etc/hosts
+    search_string: 'home.local'
+    line: '192.168.1.29 home.local'
   become: true

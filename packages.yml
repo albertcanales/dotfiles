@@ -31,3 +31,8 @@
     name: "{{ packages.present.yay.apps }}"
     state: present
   when: install_apps
+
+- name: "Install pip app packages"
+  pip:
+    name: "{{ packages.present.pip.apps }}"
+  become: false

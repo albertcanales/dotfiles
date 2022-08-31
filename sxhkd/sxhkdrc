@@ -15,6 +15,15 @@ super + e
 super + d
     pcmanfm
 
+super + s
+    firefox home.local
+
+super + g
+    ~/bin/dmenu-gitclones
+
+super + F1
+    kitty btop
+
 
 ### Menus
 

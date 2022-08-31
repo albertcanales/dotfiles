@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Small script that automates opening my IDE on the selected git repository
+# Dependencies: rofi
+
+GITCLONES_PATH=~/gitclones
+EDITOR=subl
+TERMINAL=kitty
+
+repo=$(ls $GITCLONES_PATH | rofi -dmenu)
+
+if [[ $repo ]]; then
+	subl "${GITCLONES_PATH}/${repo}" &
+	kitty "${GITCLONES_PATH}/${repo}" &
+fi

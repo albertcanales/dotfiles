@@ -22,13 +22,19 @@ alias cleanup-packages='(set -x; sudo pacman -R $(pacman -Qdtq))'
 alias gs="git status"
 alias gd="git diff"
 alias gl="git log"
-alias addall="git add --all"
+alias gaa="git add --all"
 alias vim="nvim"
 alias g++c="g++ --std=c++17 -Wall -O2 -fsanitize=address"
 alias scp="scp -F $HOME/.ssh/config "
 alias f5upc="f5fpc -s -x -t https://upclink.upc.edu"
 alias sshconf="kitty +kitten ssh "
+alias sshset="exec ssh-agent bash -c 'ssh-add && bash'"
 alias dwmmake="rm -f ~/.dwm/config.h && sudo make -C ~/.dwm install"
+
+# SSH
+#alias ssh="BINARY_SSH=ssh /usr/bin/ssh-ident"
+#alias scp="BINARY_SSH=scp /usr/bin/ssh-ident"
+#alias rsync="BINARY_SSH=rsync /usr/bin/ssh-ident"
 
 # Folders
 next="$HOME/nextcloud"

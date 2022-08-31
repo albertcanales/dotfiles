@@ -42,6 +42,10 @@ packages:
         - xdotool
         - xorg-xkill
         - openssh
+        - flameshot
+        - vlc
+        - xarchiver
+        - xf86-input-wacom
 
       apps:
         - neofetch
@@ -56,6 +60,11 @@ packages:
         - calibre
         - nextcloud-client
         - sshpass
+        - libsecret # required for Mailspring
+        - gnome-keyring # required for Mailspring
+        - wireguard-tools
+        - openresolv # required for Wireguard
+        - docker
 
     yay:
       system:
@@ -71,10 +80,15 @@ packages:
         - appimagelauncher
         - todoist-appimage
         - balena-etcher
+        - mailspring
 
     pip:
       system:
         - psutil
+      apps:
+        - mkdocs # must be installed as root
+        - mkdocs-material
+        - mkdocs-git-revision-date-localized-plugin
 
 modules:
   - src:
@@ -82,6 +96,7 @@ modules:
     - nvim
     - rofi
     - sxhkd
+    - btop
     target: /home/albert/.config
     own_dir: true
   - src:
