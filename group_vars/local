@@ -21,7 +21,7 @@ packages:
         - procs
         - ripgrep
         - firefox
-        - ttf-nerd-fonts-symbols
+        - ttf-nerd-fonts-symbols-2048-em
         - rofi
         - unzip
         - python-pip
@@ -65,6 +65,9 @@ packages:
         - wireguard-tools
         - openresolv # required for Wireguard
         - docker
+        - zola
+        - nextcloud
+        - texlive-core
 
     yay:
       system:
@@ -89,6 +92,7 @@ packages:
         - mkdocs # must be installed as root
         - mkdocs-material
         - mkdocs-git-revision-date-localized-plugin
+        - grip
 
 modules:
   - src:

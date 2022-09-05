@@ -182,3 +182,14 @@
     search_string: 'home.local'
     line: '192.168.1.29 home.local'
   become: true
+
+# Zathura
+
+- name: Get default application for PDF viewing
+  command: xdg-mime query default application/pdf
+  changed_when: false
+  register: xdg_default_pdf
+
+- name: Set Zathura as the default PDF application
+  command: xdg-mime default org.pwmt.zathura.desktop application/pdf
+  when: '"org.pwmt.zathura.desktop" != xdg_default_pdf.stdout'
