@@ -98,13 +98,14 @@
 
 # Sudoers
 
-- name: Allow albert to run reboot and poweroff without password
+- name: Allow albert to run power commands without password
   community.general.sudoers:
     name: albert-power-commands
     user: albert
     commands:
       - /bin/systemctl poweroff
       - /bin/systemctl reboot
+      - /bin/systemctl suspend
       - /bin/loginctl terminate-session
     nopassword: true
   become: true
@@ -193,3 +194,19 @@
 - name: Set Zathura as the default PDF application
   command: xdg-mime default org.pwmt.zathura.desktop application/pdf
   when: '"org.pwmt.zathura.desktop" != xdg_default_pdf.stdout'
+
+# Systemd
+
+- name: Copy systemd services
+  copy:
+    src: systemd/
+    dest: /etc/systemd/system
+  become: true
+
+# Slock
+
+- name: Enable and start slock service
+  service:
+    name: slock@albert.service
+    enabled: true
+  become: true
