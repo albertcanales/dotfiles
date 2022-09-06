@@ -1,4 +1,7 @@
 #!/bin/bash
 
 # All monitors share the same wallpaper
-feh --bg-fill --no-fehbg $(ls ~/wallpapers/*.jpg | sort -R | head -1)
+ls ~/wallpapers/*.jpg | sort -R | head -1 > /tmp/wallpaper_current
+cat /tmp/wallpaper_current
+feh --bg-fill --no-fehbg $(cat /tmp/wallpaper_current)
+
