@@ -21,7 +21,7 @@ super + s
 super + g
     ~/bin/dmenu-gitclones
 
-super + F1
+super + F2
     kitty btop
 
 
@@ -33,8 +33,10 @@ super + {_, shift + }@space
 
 # Power Menu
 super + Delete
-	rofi -show power-menu -modi "power-menu:/home/albert/.config/rofi/rofi-power-menu --choices=lockscreen/suspend/logout/reboot/shutdown"
+	rofi -show power-menu -modi "power-menu:/home/albert/.config/rofi/rofi-power-menu"
 
+super + F1
+    slock
 
 ### Utilities
 

@@ -14,36 +14,17 @@
   become: true
 
 # Grub
-- name: "Grub screen resolution"
+- name: Grub screen resolution
   replace:
-    path: "/etc/default/grub"
-    regexp: '^GRUB_GFXMODE\=.*$'
-    replace: 'GRUB_GFXMODE=1920x1080,auto'
-  notify: "update-grub"
-  become: true
-
-- name: "Grub os-prober"
-  replace:
-    path: "/etc/default/grub"
-    regexp: '^[#]?GRUB_DISABLE_OS_PROBER\=.*$'
-    replace: 'GRUB_DISABLE_OS_PROBER=false'
-  notify: "update-grub"
-  become: true
-
-- name: "Grub Default"
-  replace:
-    path: "/etc/default/grub"
-    regexp: '^GRUB_DEFAULT\=.*$'
-    replace: 'GRUB_DEFAULT=saved'
-  notify: "update-grub"
-  become: true
-
-- name: "Grub Save Default"
-  replace:
-    path: "/etc/default/grub"
-    regexp: '^[#]?GRUB_SAVEDEFAULT\=.*$'
-    replace: 'GRUB_SAVEDEFAULT=true'
-  notify: "update-grub"
+    path: /etc/default/grub
+    regexp: "{{item.exp}}"
+    replace: "{{item.rep}}"
+  with_items:
+    - { exp: '^GRUB_GFXMODE\=.*$', rep: 'GRUB_GFXMODE=1920x1080,auto' }
+    - { exp: '^[#]?GRUB_DISABLE_OS_PROBER\=.*$', rep: 'GRUB_DISABLE_OS_PROBER=false' }
+    - { exp: '^GRUB_DEFAULT\=.*$', rep: 'GRUB_DEFAULT=saved' }
+    - { exp: '^[#]?GRUB_SAVEDEFAULT\=.*$', rep: 'GRUB_SAVEDEFAULT=true' }
+  notify: update-grub
   become: true
 
 # Ly
@@ -209,4 +190,13 @@
   service:
     name: slock@albert.service
     enabled: true
+  become: true
+
+# Pacman
+
+- name: Configure pacman
+  replace:
+    path: /etc/pacman.conf
+    regexp: "^[#]?ParallelDownloads.*$"
+    replace: 'ParallelDownloads = 5'
   become: true
