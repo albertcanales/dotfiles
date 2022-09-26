@@ -37,7 +37,8 @@ alias dwmmake="rm -f ~/.dwm/config.h && sudo make -C ~/.dwm install"
 #alias rsync="BINARY_SSH=rsync /usr/bin/ssh-ident"
 
 # Folders
-next="$HOME/nextcloud"
+next="$HOME/Nextcloud"
+uni="$HOME/Nextcloud/Acadèmic/Universitat/Q5/"
 
 # Files
 alias uni="cd $uni"

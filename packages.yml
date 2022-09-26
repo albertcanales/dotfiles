@@ -2,17 +2,17 @@
 
 # System packages
 
-- name: "Install pacman system packages"
+- name: Install pacman system packages
   pacman:
     name: "{{ packages.present.pacman.system }}"
     state: present
 
-- name: "Install yay system packages"
+- name: Install yay system packages
   yay:
     name: "{{ packages.present.yay.system }}"
     state: present
 
-- name: "Install pip system packages"
+- name: Install pip system packages
   pip:
     name: "{{ packages.present.pip.system }}"
   become: false
@@ -20,19 +20,19 @@
 
 # App packages
 
-- name: "Install pacman app packages"
+- name: Install pacman app packages
   pacman:
     name: "{{ packages.present.pacman.apps }}"
     state: present
   when: install_apps
 
-- name: "Install yay app packages"
+- name: Install yay app packages
   yay:
     name: "{{ packages.present.yay.apps }}"
     state: present
   when: install_apps
 
-- name: "Install pip app packages"
+- name: Install pip app packages
   pip:
     name: "{{ packages.present.pip.apps }}"
   become: false

@@ -46,6 +46,8 @@ packages:
         - vlc
         - xarchiver
         - xf86-input-wacom
+        - sshfs
+        - unrar
 
       apps:
         - neofetch
@@ -68,6 +70,9 @@ packages:
         - zola
         - nextcloud
         - texlive-core
+        - steam
+        - cheese
+        - discord
 
     yay:
       system:
@@ -84,12 +89,13 @@ packages:
         - todoist-appimage
         - balena-etcher
         - mailspring
+        - onlyoffice-bin
 
     pip:
       system:
         - psutil
       apps:
-        - mkdocs # must be installed as root
+        - mkdocs
         - mkdocs-material
         - mkdocs-git-revision-date-localized-plugin
         - grip

@@ -1,22 +1,22 @@
 ---
-- name: "Create dir for whole"
+- name: Create dir for whole
   file:
     path: "{{ module.target }}"
     state: directory
   when: not module.own_dir
   become: false
 
-- name: "Stowing in whole"
+- name: Stowing in whole
   stow:
     state: supress
     package: "{{ item }}"
-    dir: "/home/albert/dotfiles"
+    dir: /home/albert/dotfiles
     target: "{{ module.target }}"
   with_items: "{{ module.src }}"
   when: not module.own_dir
   become: false
 
-- name: "Create dir for separate"
+- name: Create dir for separate
   file:
     path: "{{ module.target }}/{{ item }}"
     state: directory
@@ -24,11 +24,11 @@
   when: module.own_dir
   become: false
 
-- name: "Stowing separately"
+- name: Stowing separately
   stow:
     state: supress
     package: "{{ item }}"
-    dir: "/home/albert/dotfiles"
+    dir: /home/albert/dotfiles
     target: "{{ module.target }}/{{ item }}"
   with_items: "{{ module.src }}"
   when: module.own_dir

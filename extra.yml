@@ -1,16 +1,16 @@
 # Dwm
-- name: "Linking DWM repo"
+- name: Linking DWM repo
   file:
-    src: "/home/albert/dotfiles/dwm"
-    dest: "/home/albert/.dwm"
+    src: /home/albert/dotfiles/dwm
+    dest: /home/albert/.dwm
     state: link
   notify: compile-dwm
 
 # Timezone
-- name: "Setting timezone"
+- name: Setting timezone
   timezone:
-    hwclock: "local"
-    name: "Europe/Madrid"
+    hwclock: local
+    name: Europe/Madrid
   become: true
 
 # Grub
@@ -28,7 +28,7 @@
   become: true
 
 # Ly
-- name: "Configure ly service"
+- name: Configure ly service
   service:
     name: ly
     enabled: true
@@ -43,38 +43,38 @@
 
 # GTK
 
-- name: "Download Dracula theme for GTK"
+- name: Download Dracula theme for GTK
   unarchive:
-    src: "https://github.com/dracula/gtk/archive/master.zip"
-    dest: "/tmp/"
+    src: https://github.com/dracula/gtk/archive/master.zip
+    dest: /tmp/
     remote_src: true
-    creates: "/home/albert/.themes/Dracula/README.md"
+    creates: /home/albert/.themes/Dracula/README.md
   notify: copy-gtk-theme-temp
 
-- name: "Apply GTK Dracula Theme 1"
+- name: Apply GTK Dracula Theme 1
   dconf:
-    key: "/org/gnome/desktop/interface"
+    key: /org/gnome/desktop/interface
     value: "['gtk-theme', 'Dracula']"
 
-- name: "Apply GTK Dracula Theme 2"
+- name: Apply GTK Dracula Theme 2
   dconf:
     key: "/org/gnome/desktop/wm/preferences"
     value: "['theme', 'Dracula']"
 
 # Wallpapers
 
-- name: "Create wallpapers directory"
+- name: Create wallpapers directory
   file:
-    path: "/home/albert/wallpapers"
+    path: /home/albert/wallpapers
     state: directory
 
 
-- name: "Download wallpapers"
+- name: Download wallpapers
   unarchive:
-    src: "https://www.albertcanales.com/wallpapers.zip"
-    dest: "/home/albert/wallpapers/"
+    src: https://www.albertcanales.com/wallpapers.zip
+    dest: /home/albert/wallpapers/
     remote_src: true
-    creates: "/home/albert/wallpapers/README.md"
+    creates: /home/albert/wallpapers/README.md
 
 
 # Sudoers
@@ -194,7 +194,7 @@
 
 # Pacman
 
-- name: Configure pacman
+- name: Pacman enable parallel downloads
   replace:
     path: /etc/pacman.conf
     regexp: "^[#]?ParallelDownloads.*$"
