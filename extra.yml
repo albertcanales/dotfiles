@@ -200,3 +200,50 @@
     regexp: "^[#]?ParallelDownloads.*$"
     replace: 'ParallelDownloads = 5'
   become: true
+
+- name: Pacman enable multilib mirror
+  replace:
+    path: /etc/pacman.conf
+    regexp: |
+      #\[multilib\]
+      #Include = \/etc\/pacman\.d\/mirrorlist
+    replace: |
+      [multilib]
+      Include = /etc/pacman.d/mirrorlist
+  become: true
+
+# Spicetify
+
+- name: Grant Spicetify permission Spotify's files
+  file:
+    path: "{{ item.path }}"
+    mode: a+wr
+    recurse: "{{ item.recurse }}"
+  with_items:
+    - {path: /opt/spotify, recurse: false}
+    - {path: /opt/spotify/Apps, recurse: true}
+  become: true
+
+- name: Get Spicetify theme
+  shell: "spicetify config | grep 'current_theme' | awk '{print $2}'"
+  changed_when: false
+  register: spicetify_theme
+
+- name: Get Spicetify scheme
+  shell: "spicetify config | grep 'color_scheme' | awk '{print $2}'"
+  changed_when: false
+  register: spicetify_scheme
+
+- name: Set Spicetify theme
+  shell: "spicetify config current_theme Sleek"
+  with_items:
+    - {param: , value: }
+  when: 'spicetify_theme.stdout != "Sleek"'
+  notify: spicetify-apply
+
+- name: Set Spicetify scheme
+  shell: "spicetify config color_scheme Elementary"
+  with_items:
+    - {param: , value: }
+  when: 'spicetify_scheme.stdout != "Elementary"'
+  notify: spicetify-apply

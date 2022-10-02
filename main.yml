@@ -20,6 +20,9 @@
         target: install
       become: true
 
+    - name: spicetify-apply
+      shell: spicetify backup apply
+
   tasks:
     - import_tasks: packages.yml
 
