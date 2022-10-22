@@ -23,6 +23,8 @@ packages:
         - firefox
         - ttf-nerd-fonts-symbols-2048-em
         - rofi
+        - dunst
+        - picom
         - unzip
         - python-pip
         - imagemagick
@@ -73,6 +75,8 @@ packages:
         - steam
         - cheese
         - discord
+        - telegram-desktop
+        - signal-desktop
 
     yay:
       system:
@@ -110,6 +114,8 @@ modules:
     - rofi
     - sxhkd
     - btop
+    - dunst
+    - picom
     target: /home/albert/.config
     own_dir: true
   - src:
