@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Toggles dunst notifications, sending a notification indicating the status
+# Requires: dunst
+
+dunstctl is-paused && 
+    ( notify-send -u normal "Notifications disabled" && sleep 1; dunstctl close-all )
+dunstctl set-paused toggle
+dunstctl is-paused && ( notify-send -u normal "Notifications enabled" && sleep 1; dunstctl close )
+

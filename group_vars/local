@@ -58,6 +58,7 @@ packages:
         - xournalpp
         - zathura
         - zathura-pdf-mupdf
+        - zathura-ps
         - bitwarden
         - gparted
         - transmission-gtk
@@ -116,6 +117,7 @@ modules:
     - btop
     - dunst
     - picom
+    - zathura
     target: /home/albert/.config
     own_dir: true
   - src:

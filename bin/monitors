@@ -10,38 +10,37 @@ STATUS_FILE="$HOME/bin/.monitors_status"
 
 function lleida_mode {
     xrandr --output eDP-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off
-    bspc monitor $LAPTOP -d 1 2 3 4
-    bspc monitor $EXTERNAL -d 5 6 7 8 9 10
     xdotool mousemove 960 490
-    $HOME/bin/polybar-launch
     echo lleida >> $STATUS_FILE 
 }
 
 function bcn_mode {
     xrandr --output eDP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1 --off
-    bspc monitor $LAPTOP -d 1 2 3 4
-    bspc monitor $EXTERNAL -d 5 6 7 8 9 10
     xdotool mousemove 2880 490
-    $HOME/bin/polybar-launch
     echo bcn >> $STATUS_FILE 
 }
 
 function laptop_mode {
     xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-1 --off
-    bspc monitor $LAPTOP -d 1 2 3 4 5 6 7 8 9 10
     xdotool mousemove 960 490
-    $HOME/bin/polybar-launch
     echo laptop >> $STATUS_FILE
+}
+
+function hdmi_mode {
+    xrandr --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output eDP-1 --off --output DP-1 --off
+    xdotool mousemove 960 490
+    echo hdmi >> $STATUS_FILE
+}
+
+function mirror_mode {
+    xrandr --output eDP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off
+    xdotool mousemove 960 490
+    echo mirror >> $STATUS_FILE
 }
 
 function custom_mode {
     echo "Opening arandr..."
     arandr
-    for monitor in $(xrandr -q | grep " connected" | cut -d " " -f 1); do
-        read -p "Desktops for monitor $monitor: " desktops
-        bspc monitor $monitor -d $desktops
-    done
-    polybar-launch
     echo custom >> $STATUS_FILE
 }
 
@@ -69,11 +68,14 @@ function select_mode() {
         laptop_mode
     elif [[ $option == "auto" ]]; then
         auto_mode 
-    elif [[ $option == "last" ]]; then
-        last_mode
     elif [[ $option == "custom" ]]; then
         custom_mode
+    elif [[ $option == "hdmi" ]]; then
+        hdmi_mode
+    elif [[ $option == "mirror" ]]; then
+        mirror_mode
     else
+        echo "Warning: Unkown option $1"
         exit 1
     fi
     exit 0

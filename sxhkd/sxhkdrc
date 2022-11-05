@@ -43,11 +43,18 @@ super + F1
 # Reload wallpaper
 super + F5
 	~/.fehbg &
+
+# Reload monitors
+super + F6
+    $HOME/bin/monitors
 	
 # Reload sxhkd
-super + F6
+super + F7
     pkill -USR1 -x sxhkd
 
+# Notification daemon
+super + {_, shift + }Pause
+    {dunstctl close-all, $HOME/bin/toggle-dunst}
 
 ### Media keys
 
